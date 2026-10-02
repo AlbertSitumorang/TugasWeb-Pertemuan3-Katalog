@@ -1,0 +1,71 @@
+ :root {
+    --ivory: #FBF7EE;
+    --forest: #1F3A2E;
+    --forestlight: #2F5443;
+    --marigold: #E8A33D;
+    --tomato: #C1442D;
+    --ink: #26261F;
+  }
+ 
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--ink); }
+  .font-serif { font-family: 'Fraunces', serif; }
+ 
+  .bg-forest   { background-color: var(--forest) !important; }
+  .bg-forestlight-5 { background-color: rgba(47, 84, 67, 0.06); }
+  .text-forest { color: var(--forest) !important; }
+  .text-marigold { color: var(--marigold) !important; }
+  .text-tomato { color: var(--tomato) !important; }
+  .bg-marigold { background-color: var(--marigold) !important; }
+  .border-forest-10 { border-color: rgba(31,58,46,0.12) !important; }
+ 
+  #cartBtn { 
+    background-color: var(--marigold); 
+    color: var(--ivory); 
+    font-weight: 500px;
+    height: 50px;
+    width:100px; 
+    border: 10px; }
+
+#cartBtn, .word{
+    font-size:14px;
+}
+
+
+  .btn-marigold:hover { background-color: #fff; color: var(--forest); }
+  .btn-forest { background-color: var(--forest); color: var(--ivory); font-weight: 600; border: none; }
+  .btn-forest:hover { background-color: var(--marigold); color: var(--forest); }
+  .btn-outline-forest { border: 1px solid rgba(31,58,46,0.25); color: var(--forest); font-weight: 600; }
+  .btn-outline-forest.active { background-color: var(--forest); color: var(--ivory); }
+ 
+  /* Fluid typography with clamp() — requirement #7 */
+  .hero-title    { font-size: clamp(2.1rem, 1.1rem + 4vw, 4rem); line-height: 1.08; }
+  .section-title { font-size: clamp(1.5rem, 1rem + 1.8vw, 2.5rem); }
+  .lead-text     { font-size: clamp(1rem, 0.92rem + 0.3vw, 1.15rem); }
+  .card-price    { font-size: clamp(1.05rem, 0.9rem + 0.4vw, 1.3rem); }
+ 
+  a.nav-link { color: rgba(251,247,238,0.85) !important; font-weight: 500; }
+  a.nav-link:hover, a.nav-link.active { color: var(--marigold) !important; }
+ 
+  .product-card img { height: 190px; object-fit: cover; }
+ 
+  /* Satu momen animasi saat halaman dimuat (hero) */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise-in { animation: riseIn 0.7s ease-out both; }
+  .rise-in-delay { animation: riseIn 0.7s ease-out 0.15s both; }
+ 
+  #backToTop { width: 44px; height: 44px; border-radius: 50%; }
+ 
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .product-card:hover{
+transform: translateY(-5px);
+transition: transform 0.4s ease-in-out,
+        box-shadow 0.5s ease-in-out,
+        opacity 0.4s ease-in-out;
+  }

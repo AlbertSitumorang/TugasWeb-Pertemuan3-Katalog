@@ -1,0 +1,283 @@
+        <!DOCTYPE html>
+        <html lang="id">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pasar Panen Segar — Katalog Musiman Oktober 2023</title>
+        <meta name="description" content="Katalog produk buah segar musiman dari Pasar Panen Segar, edisi Oktober 2023. Dibangun dengan Bootstrap 5, responsif dengan filter kategori dan keranjang belanja.">
+    <link rel="stylesheet" href="style.css">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        </head>
+        <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0" class="bg-body">
+
+        <!-- ============ NAVBAR (Bootstrap navbar, hamburger otomatis di mobile) ============ -->
+        <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-forest sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand font-serif fw-semibold fs-4" href="#beranda">Pasar Panen Segar</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Buka menu navigasi">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mx-auto gap-md-4 mt-3 mt-md-0">
+                <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+            </ul>
+            <button id="cartBtn" class="btn btn-marigold rounded-pill px-3 mt-3 mt-md-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+            <span id="word">Keranjang</span>  (<span id="cartCount">0</span>)
+            </button>
+            </div>
+        </div>
+        </nav>
+
+        <!-- ============ HERO ============ -->
+        <section id="beranda" class="bg-forest text-light overflow-hidden">
+        <div class="container py-5 py-md-6">
+            <div class="row align-items-center g-5 py-4">
+            <div class="col-lg-6 rise-in">
+                <p class="text-marigold fw-semibold mb-3">Katalog Pasar Segar &middot; Dibuat pada 19 September 2026</p>
+                <h1 class="hero-title font-serif fw-semibold">Kesegaran dari kebun, kini dapat hadir di meja Anda.</h1>
+                <p class="lead-text mt-4 text-white-50" style="max-width: 32rem;">Pilihan buah segar berkualitas, dipilih langsung dari kebun mitra untuk menemani hari Anda dengan rasa yang lebih segar.</p>
+                <div class="mt-4 d-flex flex-wrap gap-3">
+                <a href="#produk" class="btn btn-marigold rounded-pill px-4 py-2">Lihat Koleksi Buah</a>
+                <a href="#kontak" class="btn btn-outline-light rounded-pill px-4 py-2">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="col-lg-6 rise-in-delay">
+                <img src="gambar/5e8c63fbd04e6dfcb2265fbfd9a097b5.jpg"
+                    alt="Aneka buah segar tersusun rapi di pasar"
+                    class="img-fluid rounded-4 shadow-lg w-100"
+                    style="aspect-ratio: 4/3; object-fit: cover;"
+                    loading="lazy" width="800" height="600">
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ============ PRODUK (grid responsif Bootstrap + filter kategori + search) ============ -->
+        <section id="produk" class="container py-5 py-md-6">
+        <div class="mb-4" style="max-width: 36rem;">
+            <h2 class="section-title font-serif fw-semibold text-forest">Koleksi buah minggu ini</h2>
+            <p class="lead-text mt-2 text-secondary">Delapan pilihan favorit pelanggan, harga berlaku untuk pembelian di toko maupun pengiriman area Medan.</p>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+            <div class="btn-group" role="group" aria-label="Filter kategori buah">
+            <button class="btn btn-outline-forest rounded-pill me-2 active" data-filter="semua">Semua</button>
+            <button class="btn btn-outline-forest rounded-pill me-2" data-filter="lokal">Buah Lokal</button>
+            <button class="btn btn-outline-forest rounded-pill" data-filter="impor">Buah Impor</button>
+            </div>
+
+            <div class="w-100" style="max-width: 260px;">
+            <input id="searchInput" type="search" class="form-control rounded-pill" placeholder="Cari buah...">
+            </div>
+        </div>
+
+        <p id="emptyState" class="d-none text-center text-secondary py-5">Tidak ada produk yang cocok. Coba kata kunci atau filter lain.</p>
+
+        <div id="productGrid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+
+            <div class="col product-card" data-category="impor" data-name="Apel Fuji Segar" data-price="35000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="gambar/Apel fuji.jpg" class="card-img-top" alt="Apel Fuji segar berwarna merah" loading="lazy" width="480" height="360">
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Apel Fuji Segar</h3>
+                <p class="text-secondary small flex-grow-1">Manis renyah, cocok untuk camilan harian.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp35.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="impor" data-name="Jeruk Mandarin" data-price="42000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="gambar/jeruk mandarin.jpg" class="card-img-top" alt="Jeruk Mandarin segar" loading="lazy" width="480" height="360">
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Jeruk Mandarin</h3>
+                <p class="text-secondary small flex-grow-1">Rasa asam manis segar, kaya vitamin C.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp42.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="lokal" data-name="Pisang Cavendish" data-price="28000" data-unit="sisir">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="gambar/Pisang Cavendish.jpg" class="card-img-top" alt="Pisang Cavendish kuning matang" loading="lazy" width="480" height="360">
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Pisang Cavendish</h3>
+                <p class="text-secondary small flex-grow-1">Tekstur lembut, sumber energi alami.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp28.000<span class="small text-secondary fw-normal">/sisir</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="impor" data-name="Anggur Merah Impor" data-price="85000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="gambar/Anggur Merah.jpg" class="card-img-top" alt="Anggur merah impor" loading="lazy" width="480" height="360">
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Anggur Merah Impor</h3>
+                <p class="text-secondary small flex-grow-1">Butiran besar, manis, tanpa biji.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp85.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="lokal" data-name="Mangga Harumanis" data-price="55000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                <span class="badge bg-marigold text-forest position-absolute top-0 start-0 m-2">Terlaris</span>
+                <img src="gambar/Mangga harum manis.jpg" class="card-img-top" alt="Mangga Harumanis matang" loading="lazy" width="480" height="360">
+                </div>
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Mangga Harumanis</h3>
+                <p class="text-secondary small flex-grow-1">Matang pohon, daging tebal dan wangi.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp55.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="lokal" data-name="Alpukat Mentega Premium" data-price="60000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                <span class="badge bg-marigold text-forest position-absolute top-0 start-0 m-2">Terlaris</span>
+                <img src="gambar/Alpukat Mentega.jpg" class="card-img-top" alt="Alpukat mentega premium" loading="lazy" width="480" height="360">
+                </div>
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Alpukat Mentega Premium</h3>
+                <p class="text-secondary small flex-grow-1">Daging lembut creamy, cocok untuk jus.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp60.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="lokal" data-name="Buah Naga Merah" data-price="30000" data-unit="kg">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                <span class="badge bg-forest text-light position-absolute top-0 start-0 m-2">Baru</span>
+                <img src="gambar/buah naga.jpg" class="card-img-top" alt="Buah naga merah segar" loading="lazy" width="480" height="360">
+                </div>
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Buah Naga Merah</h3>
+                <p class="text-secondary small flex-grow-1">Segar dan rendah kalori, kaya antioksidan.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp30.000<span class="small text-secondary fw-normal">/kg</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col product-card" data-category="lokal" data-name="Strawberry Lembang" data-price="35000" data-unit="pak">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="gambar/Strawberry Lembang.jpg" class="card-img-top" alt="Strawberry Lembang segar" loading="lazy" width="480" height="360">
+                <div class="card-body d-flex flex-column">
+                <h3 class="font-serif fw-semibold fs-5 text-forest">Strawberry Lembang</h3>
+                <p class="text-secondary small flex-grow-1">Manis asam segar, langsung dari dataran tinggi.</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="card-price fw-semibold text-tomato">Rp35.000<span class="small text-secondary fw-normal">/pak</span></span>
+                    <button class="add-cart btn btn-forest btn-sm rounded-pill">+ Keranjang</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        </section>
+
+        <!-- ============ TENTANG ============ -->
+        <section id="tentang" class="bg-forestlight-5 border-top border-bottom border-forest-10">
+        <div class="container py-5 py-md-6">
+            <div class="row align-items-center g-5">
+            <div class="col-md-6">
+                <img src="gambar/kebun.jpg" alt="Petani sedang memanen buah di kebun" class="img-fluid rounded-4 w-100" style="aspect-ratio: 7/5; object-fit: cover;" loading="lazy" width="700" height="500">
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title font-serif fw-semibold text-forest">Langsung dari kebun mitra kami</h2>
+                <p class="lead-text mt-3 text-secondary">Pasar Panen Segar bekerja sama dengan lebih dari 40 petani di Sumatera Utara. Setiap buah dipetik matang pohon, disortir manual, lalu dikirim dalam waktu 24 jam.</p>
+                <ul class="list-unstyled mt-4 text-secondary small">
+                <li class="mb-2"><span class="text-marigold">✓</span> Sortir kualitas 3 tahap sebelum dikemas</li>
+                <li class="mb-2"><span class="text-marigold">✓</span> Kemasan ramah lingkungan, minim plastik</li>
+                <li class="mb-2"><span class="text-marigold">✓</span> Pengiriman sejuk agar buah tetap segar</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ============ FOOTER ============ -->
+        <footer id="kontak" class="bg-forest text-light">
+        <div class="container py-5">
+            <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+                <p class="font-serif fs-4 fw-semibold mb-2">Pasar Panen Segar</p>
+                <p class="small text-white-50" style="max-width: 20rem;">Jl. Panen Sejahtera No. 12, Medan, Sumatera Utara.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <p class="fw-semibold text-marigold mb-2">Tautan</p>
+                <ul class="list-unstyled small">
+                <li class="mb-2"><a href="#beranda" class="link-light link-underline-opacity-0">Beranda</a></li>
+                <li class="mb-2"><a href="#produk" class="link-light link-underline-opacity-0">Produk</a></li>
+                <li class="mb-2"><a href="#tentang" class="link-light link-underline-opacity-0">Tentang</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <p class="fw-semibold text-marigold mb-2">Hubungi Kami</p>
+                <ul class="list-unstyled small text-white-50">
+                <li class="mb-2">081377311089</li>
+                <li>www.pasarpanensegar.co.id</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <div class="border-top border-light border-opacity-10 py-3 text-center small text-white-50">
+            &copy; 2023 Pasar Panen Segar. Semua hak cipta dilindungi.
+        </div>
+        </footer>
+
+        <!-- ============ TOMBOL BACK TO TOP ============ -->
+        <button id="backToTop" class="btn btn-forest d-none position-fixed bottom-0 end-0 m-4 align-items-center justify-content-center" aria-label="Kembali ke atas">↑</button>
+
+        <!-- ============ KERANJANG (Bootstrap Offcanvas) ============ -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header border-bottom">
+            <h2 class="offcanvas-title font-serif fw-semibold text-forest" id="cartOffcanvasLabel">Keranjang Anda</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cartItems" class="flex-grow-1">
+            <p id="cartEmptyMsg" class="text-secondary small">Keranjang masih kosong. Yuk pilih buah favoritmu.</p>
+            </div>
+            <div class="border-top pt-3 mt-3">
+            <div class="d-flex justify-content-between fw-semibold text-forest mb-3">
+                <span>Total</span>
+                <span id="cartTotal">Rp0</span>
+            </div>
+            <button class="btn btn-marigold w-100 rounded-pill py-2">Checkout</button>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        </body>
+        </html>
